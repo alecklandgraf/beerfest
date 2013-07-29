@@ -68,9 +68,12 @@ REGION_CHOICES = [('West Coast', 'West Coast'), ('East Coast', 'East Coast'), ('
 
 
 class Brewery(models.Model):
+    # required fields
     name = models.CharField(max_length=100)
     slug = AutoSlugField(populate_from='name', unique=True, editable=True)
     description = models.TextField(blank=True, null=True)
+
+    # non-required fields
     country = models.CharField(max_length=100, blank=True, null=True)
     region = models.CharField(max_length=100, choices=REGION_CHOICES, blank=True, null=True)
     city = models.CharField(max_length=100, blank=True, null=True)
@@ -91,14 +94,24 @@ class BeerStyle(models.Model):
 
 
 class Beer(models.Model):
+    # required fields
     name = models.CharField(max_length=100)
     slug = AutoSlugField(populate_from='name', unique=True, editable=True)
     brewery = models.ForeignKey(Brewery)
+
+    # non-required fields
     description = models.TextField(blank=True, null=True)
     style = models.ForeignKey(BeerStyle)
     ibu = models.IntegerField(blank=True, null=True, help_text='International Bitterness Units: from 0 to 100, some beer are higher')
     abv = models.FloatField(blank=True, null=True, help_text='Alchol by Volume, percentage from 0 to 100')
     vintage = models.DateTimeField(blank=True, null=True)
+    og = models.FloatField(blank=True, null=True, help_text='Original Gravity')
+    fg = models.FloatField(blank=True, null=True, help_text='Final Gravity')
+    plato = models.FloatField(blank=True, null=True, help_text='Strength')
+    degrees_lovibond = models.FloatField(blank=True, null=True, help_text='Color Scale')
+    color = models.CharField(max_length=30, blank=True, null=True)
 
     def __unicode__(self):
-        return u'%s - %s - %s - %s - %s' % (self.name, self.brewery, self.style, self.abv, self.ibu, )
+        if self.abv and self.ibu:
+            return u'%s - %s - %s - %s - %s' % (self.name, self.brewery, self.style, self.abv, self.ibu, )
+        return u'%s - %s - %s' % (self.name, self.brewery, self.style, )
