@@ -1,0 +1,13 @@
+ToDo:
+
+Features
+    - adds basic brewfest obf2013 app
+    - setup user accounts
+        - favorites m2m
+        - does drank go here or in the fest app
+    - Al's pics
+
+
+Data
+    - load initial OBF2013 data via fixture
+    - load beer styles in via fixture
