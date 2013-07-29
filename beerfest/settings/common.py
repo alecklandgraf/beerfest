@@ -1,4 +1,10 @@
 # Django settings for beerfest project.
+import sys
+from os.path import abspath, join, dirname
+SITE_ROOT = abspath(join(dirname(__file__), "../",))
+APP_ROOT = abspath(join(SITE_ROOT, "apps"))
+sys.path.insert(0, SITE_ROOT)
+sys.path.insert(0, APP_ROOT)
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -131,7 +137,7 @@ BASE_APPS = (
 )
 
 PROJECT_APPS = (
-    # '',
+    'brewkeeper',
 )
 
 INSTALLED_APPS = BASE_APPS + PROJECT_APPS
