@@ -38,3 +38,4 @@ beerfest/settings/local_untracked.py
 # heroku wished ignores
 venv
 staticfiles
+beerfest.db
