@@ -206,6 +206,8 @@ THIRD_PARTY_APPS = (
 
 LOCAL_APPS = (
     'beerfest',
+    'beerfest.apps.brewkeeper',
+    'beerfest.apps.fest',
 )
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
