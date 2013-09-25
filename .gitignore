@@ -39,3 +39,4 @@ beerfest/settings/local_untracked.py
 venv
 staticfiles
 beerfest.db
+beerfest/default.db
