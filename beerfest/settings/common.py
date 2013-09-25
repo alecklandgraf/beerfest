@@ -199,9 +199,13 @@ THIRD_PARTY_APPS = (
 
     # Asynchronous task queue:
     'djcelery',
+
+    # needed for debug toolbar and shell_plus
+    'django_extensions',
 )
 
 LOCAL_APPS = (
+    'beerfest',
 )
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
