@@ -15,6 +15,7 @@ HEROKU_ADDONS = (
     'newrelic:standard',
     'pgbackups:auto-month',
     'sentry:developer',
+    'papertrail:choklad',
 )
 HEROKU_CONFIGS = (
     'DJANGO_SETTINGS_MODULE={{ project_name }}.settings.prod',
