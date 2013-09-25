@@ -7,7 +7,7 @@ urls.py
 
 from django.conf.urls.defaults import patterns, url
 
-
-urlpatterns = patterns('brewkeeper.views',
+print "got here"
+urlpatterns = patterns('beerfest.apps.brewkeeper.views',
     url(r'^$', 'home', name='home'),
 )
